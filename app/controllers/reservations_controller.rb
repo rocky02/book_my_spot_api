@@ -1,6 +1,14 @@
 class ReservationsController < ApplicationController
 
   def search
-    Address.near(params[:location])
+    result = Address.near(params[:location])
+    respond_to do |format|
+      format.json { result }
+    end
   end
+  
+  def create
+  end
+
+
 end
